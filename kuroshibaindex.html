@@ -402,7 +402,7 @@ async function analyzeFood(input) {
             role: 'user',
             content: [
               { type: 'image', source: { type: 'base64', media_type: mediaType, data: base64 } },
-              { type: 'text', text: 'この食事の写真を見て、以下のJSON形式だけで答えてください。余分な文字は一切不要です。\n{"name":"料理名","calories":数値,"protein":"Xg","fat":"Xg","carb":"Xg"}' }
+              { type: 'text', text: 'この食事・食品の写真を分析してください。パッケージの栄養成分表示がある場合はそれを読み取り、ない場合は見た目から推定してください。価格や金額の数字は無視してください。必ず以下のJSON形式だけで返してください。余分な文字は不要です。\n{"name":"料理名","calories":カロリー整数,"protein":"タンパク質g数","fat":"脂質g数","carb":"炭水化物g数"}' }
             ]
           }]
         })
