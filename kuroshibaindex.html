@@ -300,6 +300,7 @@ function startApp() {
   state.bmr = calcBMR(gender, age, height, weight);
   state.targetCal = state.bmr - 240;
   state.weight = weight;
+  localStorage.setItem('userProfile', JSON.stringify({gender, age, height, weight}));
   document.getElementById('stat-weight').textContent = weight + 'kg';
   showScreen('home');
   updateDog();
