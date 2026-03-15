@@ -410,7 +410,8 @@ async function analyzeFood(input) {
 
       const data = await response.json();
       const text = data.content[0].text.trim();
-      const json = JSON.parse(text);
+const cleanText = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+const json = JSON.parse(cleanText);
 
       document.getElementById('analyzing').classList.remove('visible');
       document.getElementById('result-food-name').textContent = json.name;
