@@ -480,6 +480,18 @@ function recordExercise() {
 // Init dog images on home
 document.getElementById('dog-img').src = IMGS['happy'];
 document.getElementById('analyzing-dog').src = IMGS['happy'];
+  
+// 保存されたプロフィールを読み込む
+const savedProfile = localStorage.getItem('userProfile');
+if (savedProfile) {
+  const p = JSON.parse(savedProfile);
+  state.bmr = calcBMR(p.gender, p.age, p.height, p.weight);
+  state.targetCal = state.bmr - 240;
+  state.weight = p.weight;
+  document.getElementById('stat-weight').textContent = p.weight + 'kg';
+  showScreen('home');
+  updateDog();
+}
 </script>
 </body>
 </html>
