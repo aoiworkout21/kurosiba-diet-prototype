@@ -428,10 +428,11 @@ async function analyzeFood(input) {
       document.getElementById('food-result').classList.add('visible');
       window._pendingCal = json.calories;
 
-    } catch(e) {
+  } catch(e) {
       document.getElementById('analyzing').classList.remove('visible');
       document.getElementById('upload-area').style.display = 'block';
-      alert('解析に失敗しました。もう一度試してください。');
+      alert('エラー: ' + e.message);
+      console.error('APIエラー詳細:', e);
     }
   };
   reader.readAsDataURL(file);
